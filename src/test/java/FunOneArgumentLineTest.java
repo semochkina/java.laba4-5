@@ -13,6 +13,12 @@ public class FunOneArgumentLineTest {
         FunOneArgumentLine fun = new FunOneArgumentLine(1, 3, 3, 2);
         System.out.println(fun.calculate(2));
         Assert.assertEquals(fun.calculate(2), 8., DELTA);
+        try{
+            fun.calculate(4);
+            Assert.fail("Error");
+        } catch (RuntimeException ex) {
+            //
+        }
         Assert.assertEquals(fun.segmentBegin(), 1., DELTA);
         Assert.assertEquals(fun.segmentEnd(), 3., DELTA);
     }

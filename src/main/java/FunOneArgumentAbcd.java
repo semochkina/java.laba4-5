@@ -2,17 +2,29 @@
  * функции вида f(x) = (Ax + B) / (Cx + D)
  */
 public class FunOneArgumentAbcd implements FunOneArgument {
-    /** начало отрезка на котором определена функция */
+    /**
+     * начало отрезка на котором определена функция
+     */
     private double segmentBegin;
-    /** конец отрезка на котором определена функция */
+    /**
+     * конец отрезка на котором определена функция
+     */
     private double segmentEnd;
-    /** аргумент A */
+    /**
+     * аргумент A
+     */
     private double argumentA;
-    /** аргумент B */
+    /**
+     * аргумент B
+     */
     private double argumentB;
-    /** аргумент C */
+    /**
+     * аргумент C
+     */
     private double argumentC;
-    /** аргумент D */
+    /**
+     * аргумент D
+     */
     private double argumentD;
 
     public FunOneArgumentAbcd(double segmentBegin,
@@ -31,7 +43,10 @@ public class FunOneArgumentAbcd implements FunOneArgument {
 
     @Override
     public double calculate(double x) {
-        return (argumentA * x + argumentB) / (argumentC * x + argumentD);
+        if (segmentBegin <= x && x <= segmentEnd) {
+            return (argumentA * x + argumentB) / (argumentC * x + argumentD);
+        }
+        throw new RuntimeException("Ne vhodit v diapozon");
     }
 
     @Override

@@ -20,7 +20,10 @@ public class FunOneArgumentSin implements FunOneArgument {
 
     @Override
     public double calculate(double x) {
-        return argumentA * Math.sin(argumentB * x);
+        if (segmentBegin <= x && x <= segmentEnd) {
+            return argumentA * Math.sin(argumentB * x);
+        }
+        throw new RuntimeException("Ne vhodit v diapozon");
     }
 
     @Override

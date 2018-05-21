@@ -20,7 +20,10 @@ public class FunOneArgumentExp implements FunOneArgument {
 
     @Override
     public double calculate(double x) {
-        return argumentA * Math.exp(x) + argumentB;
+        if (segmentBegin <= x && x <= segmentEnd) {
+            return argumentA * Math.exp(x) + argumentB;
+        }
+        throw new RuntimeException("Ne vhodit v diapozon");
     }
 
     @Override
